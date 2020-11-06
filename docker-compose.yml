@@ -16,7 +16,7 @@ services:
   # Next, we download and start an instance of PSPDFKit Server.
   # https://pspdfkit.com/guides/server/current/pspdfkit-server/overview/
   pspdfkit:
-    image: "${PSPDFKIT_IMAGE:-docker.pspdfkit.com/pspdfkit:latest}"
+    image: pspdfkit/pspdfkit:latest
 
     environment:
       PGUSER: pspdfkit
@@ -61,7 +61,7 @@ services:
     depends_on:
       - pspdfkit
     ports:
-      - "3000:3000"
+      - "8000:3000"
 
     environment:
       # The internal URL is used by the Examples Catalog server to connect to
@@ -85,7 +85,7 @@ services:
       # UPLOAD_AUTH_PASSWORD: password
 
       PSPDFKIT_STANDALONE_LICENSE_KEY: |
-        YOUR_LICENSE_KEY_GOES_HERE
+        gnrWLOvtLySXvx8KoQ12JF8MTH1-EuNewyCF2o6b9G5CfDhRUalgUOtHruCi1W2vd3tlz20xjsXHST7xEcfKT43N9MUqZ1hBpeKJ6fOh4qILTiX0GZXBiQYkfLHjH7fuxBxc1_8tzouCXNnUPiKSccOth7kHwQ1rKNoQHl_7pcyDT71JNUl_6MTO2U3QoC8ZbTEuBix65pxcj8CfsZcYwy7PCOdHWlM5qtCh6O40lz351K5UukeDYTUMkmWn_LerPF82L3mGbpTGi7_XqmxTB2ey8N9TK-RUCu6bfoBsEqwHyAHo2I98jHrq1Pn4pvxRZpvXfuYib0wxR18nTWbCFB450jiiL5jnb5eeDTf4nPT0E6fBXtiqfI0ca1WdRO0yM2ToHSQLrVj5OdwKrSDBUOybSgHlFBVwC-6Jsq0s1P4BokXj5rPbMpAQ60u7qs2p
 
       JWT_PRIVATE_KEY: |
         -----BEGIN RSA PRIVATE KEY-----
